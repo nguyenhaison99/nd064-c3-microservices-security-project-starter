@@ -1,6 +1,45 @@
+Docker threat modeling using the STRIDE framework
+Spoofing:
+Risk of client traffic spoofing between the Docker client and daemon or registry, potentially allowing attackers to intercept and replay communications. Implementing Transport Layer Security (TLS) is crucial to mitigate this threat.
+Threat of Docker images being spoofed with malicious content, which could compromise the entire system. Image layer analysis is essential for detection.
 
+Tampering:
+Daemon configuration tampering by a compromised client could lead to system vulnerabilities. This highlights the need for secure client environments and robust configuration management.
+Unauthorized modification of configuration files by attackers, indicating the importance of secure access controls and system monitoring.
 
+Elevation of Privilege:
+Elevated container image permissions, especially through the use of the --privilege flag, can lead to significant security risks. Careful management of container permissions is necessary.
+Running a Docker container as root increases the risk of isolation tampering and broader system compromise. Ensuring containers run with least privilege is critical.
 
+Denial of Service:
+Over-allocation of resources to the Docker Daemon can lead to system overload and potential service outages. Proper resource management and monitoring are key to preventing this.
+Flood attacks causing excessive traffic and service crashes, underscoring the need for robust network security and traffic management.
+
+Information Disclosure:
+Insecure daemon configuration can lead to unauthorized access and alteration of daemon file information. Secure configuration practices and regular audits are vital to prevent such breaches.
+==========================================================================================
+Kubernetes threats modeling using the STRIDE framework
+Spoofing:
+Risk of unauthorized access through compromised credentials. Implement strong authentication and rotate credentials regularly.
+Threat of attackers impersonating services or nodes. Enforce strict identity verification and network policies.
+
+Tampering:
+Unauthorized alteration of configuration files or Kubernetes objects. Implement immutability and strict access controls.
+Risk of code injection in container images. Use trusted repositories and scan images for vulnerabilities.
+
+Elevation of Privilege:
+Containers running with elevated privileges. Apply the principle of least privilege and use security contexts.
+Misconfigured role-based access controls (RBAC). Conduct regular audits and grant minimal permissions.
+
+Denial of Service:
+Overloading cluster resources or exploiting application vulnerabilities. Set resource quotas and limits, ensure application robustness.
+Network-based attacks disrupting cluster communication. Employ network policies and firewalls.
+
+Information Disclosure:
+Inadequate protection of sensitive data like secrets and keys. Use Kubernetes Secrets and encrypt sensitive data.
+Exposed logging and monitoring data. Control and monitor access to logs.
+
+==========================================================================================
 Docker-bench
 3.16 Ensure that the Docker socket file permissions are set to 660 or more restrictively (Automated)
 chmod 660 /var/run/docker.sock
