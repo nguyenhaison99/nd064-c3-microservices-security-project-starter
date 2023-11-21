@@ -1,0 +1,15 @@
+
+
+
+Docker-bench
+3.16 Ensure that the Docker socket file permissions are set to 660 or more restrictively (Automated)
+chmod 660 /var/run/docker.sock
+
+4.5 Ensure Content trust for Docker is Enabled (Automated)
+export DOCKER_CONTENT_TRUST=1
+
+5.10 Ensure that the memory usage for container is limited (Automated)
+docker run -u --interactive --tty --memory 256mb opensuse/leap /bin/bash
+
+5.14 Ensure that the 'on-failure' container restart policy is set to '5' (Automated)
+docker run -u --detach --restart=on-failure:5 opensuse/leap
