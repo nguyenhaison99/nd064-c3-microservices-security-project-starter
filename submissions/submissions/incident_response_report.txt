@@ -1,0 +1,10 @@
+1. Incident commander: Nguyen Hai Son (SonNH65)
+2. Executive summary: A cyberattack deployed three crypto miner pods, causing significant CPU usage and disrupting client services.
+3. Summary of affected areas: Attackers accessed the cluster for mining, severely slowing down client service requests.
+4. Impact summary: Grafana dashboard recorded CPU spikes during attacker access and software execution.
+5. Remediation steps: Admins can force-delete pods, limit admin access, and restore normal CPU usage.
+6. Lessons learned: Harden cluster access, disallow malicious images, set alerts for high CPU usage to detect unusual activities.
+
+
+
+
